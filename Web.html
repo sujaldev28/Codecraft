@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Website!</h1>
+        <p>Your go-to place for amazing content and insights.</p>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="home">
+        <h2>About Us</h2>
+        <p>We are dedicated to providing you with the best content and resources. Stay tuned for more updates!</p>
+    </main>
+    
+    <main id="about" style="display:none;">
+        <h2>Our Mission</h2>
+        <p>To provide valuable information and resources to our community.</p>
+    </main>
+    
+    <main id="contact" style="display:none;">
+        <h2>Contact Us</h2>
+        <p>Email us at: info@example.com</p>
+    </main>
+    
+    <main id="blog" style="display:none;">
+        <h2>Latest Posts</h2>
+        <p>Stay tuned for our latest posts and articles.</p>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Simple Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('main').forEach(section => {
+                    section.style.display = 'none';
+                });
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
